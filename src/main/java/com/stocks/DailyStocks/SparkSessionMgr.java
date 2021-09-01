@@ -1,9 +1,11 @@
 package com.stocks.DailyStocks;
 
+import java.io.Serializable;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
 
-public class SparkSessionMgr {
+public class SparkSessionMgr implements Serializable{
 	SparkSession session = null;
 	public void init() {
 		 	if (session == null) {
