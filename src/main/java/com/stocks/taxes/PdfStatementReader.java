@@ -12,14 +12,11 @@ public class PdfStatementReader {
 		 //Loading an existing document
 	      File file = new File("D:\\Innovative Expenses\\2020filing\\bofa\\5302\\pdf\\eStmt_2020-01-17.pdf");
 	      PDDocument document = PDDocument.load(file);
-//	      //Instantiate PDFTextStripper class
-	      PDFTextStripper pdfStripper = new PDFTextStripper();
-//	      //Retrieving text from PDF document
-	      String text = pdfStripper.getText(document);
-	      System.out.println(text);
+ 	      PDFTextStripper pdfStripper = new PDFTextStripper();
+ 	      String text = pdfStripper.getText(document);
+//	      System.out.println(text);
 	      
-//	      //Closing the document
-	      document.close();
+ 	      document.close();
 	}
 	
 	public static void main(String ard[]) throws IOException
