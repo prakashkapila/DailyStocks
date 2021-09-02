@@ -15,8 +15,7 @@ public class PdfStatementReader {
  	      PDFTextStripper pdfStripper = new PDFTextStripper();
  	      String text = pdfStripper.getText(document);
 //	      System.out.println(text);
-	      
- 	      document.close();
+	      document.close();
 	}
 	
 	public static void main(String ard[]) throws IOException
