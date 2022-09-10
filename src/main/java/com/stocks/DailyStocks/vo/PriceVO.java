@@ -18,7 +18,17 @@ public class PriceVO implements Serializable{
 	private Long volume;
 	private double percent;
 	private String time;
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	private String dayMonth;
+	private Date date;
 	///
 	private double price;
 	 private double changedBy;
