@@ -1,7 +1,6 @@
 package com.stocks.DailyStocks.vo;
  
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,10 +9,10 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.spark.sql.Row;
 import org.bson.Document;
-import org.slf4j.LoggerFactory;
 
 public class Converter {
-static Logger log = LogManager.getLogger(Converter.class);
+
+	static Logger log = LogManager.getLogger(Converter.class);
 	final static String OP="openPrice";
 	final static String HP="highPrice";
 	final static String LP="lowPrice";
