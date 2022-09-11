@@ -1,0 +1,940 @@
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+20/07/14 20:25:10 INFO SparkContext: Running Spark version 2.2.0
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.hadoop.security.authentication.util.KerberosUtil (file:/C:/Users/praka/.m2/repository/org/apache/hadoop/hadoop-auth/2.6.5/hadoop-auth-2.6.5.jar) to method sun.security.krb5.Config.getInstance()
+WARNING: Please consider reporting this to the maintainers of org.apache.hadoop.security.authentication.util.KerberosUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+20/07/14 20:25:10 INFO SparkContext: Submitted application: StocksManager
+20/07/14 20:25:10 INFO SecurityManager: Changing view acls to: praka
+20/07/14 20:25:10 INFO SecurityManager: Changing modify acls to: praka
+20/07/14 20:25:10 INFO SecurityManager: Changing view acls groups to: 
+20/07/14 20:25:10 INFO SecurityManager: Changing modify acls groups to: 
+20/07/14 20:25:10 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(praka); groups with view permissions: Set(); users  with modify permissions: Set(praka); groups with modify permissions: Set()
+20/07/14 20:25:11 INFO Utils: Successfully started service 'sparkDriver' on port 62584.
+20/07/14 20:25:11 INFO SparkEnv: Registering MapOutputTracker
+20/07/14 20:25:11 INFO SparkEnv: Registering BlockManagerMaster
+20/07/14 20:25:11 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+20/07/14 20:25:11 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+20/07/14 20:25:11 INFO DiskBlockManager: Created local directory at C:\Users\praka\AppData\Local\Temp\blockmgr-f467cfe0-9396-4ac9-bfbf-1cec82d181f1
+20/07/14 20:25:11 INFO MemoryStore: MemoryStore started with capacity 4.6 GB
+20/07/14 20:25:11 INFO SparkEnv: Registering OutputCommitCoordinator
+20/07/14 20:25:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+20/07/14 20:25:11 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://192.168.56.1:4040
+20/07/14 20:25:11 WARN FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+20/07/14 20:25:11 INFO FairSchedulableBuilder: Created default pool: default, schedulingMode: FIFO, minShare: 0, weight: 1
+20/07/14 20:25:11 INFO Executor: Starting executor ID driver on host localhost
+20/07/14 20:25:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 62597.
+20/07/14 20:25:11 INFO NettyBlockTransferService: Server created on 192.168.56.1:62597
+20/07/14 20:25:11 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+20/07/14 20:25:11 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.56.1, 62597, None)
+20/07/14 20:25:11 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.56.1:62597 with 4.6 GB RAM, BlockManagerId(driver, 192.168.56.1, 62597, None)
+20/07/14 20:25:11 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 192.168.56.1, 62597, None)
+20/07/14 20:25:11 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 192.168.56.1, 62597, None)
+20/07/14 20:25:11 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/D:/git/DailyStocks/spark-warehouse/').
+20/07/14 20:25:11 INFO SharedState: Warehouse path is 'file:/D:/git/DailyStocks/spark-warehouse/'.
+20/07/14 20:25:12 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+20/07/14 20:25:15 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:15 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0)) > 0)
+20/07/14 20:25:15 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:15 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:15 INFO CodeGenerator: Code generated in 210.3145 ms
+20/07/14 20:25:15 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:15 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:15 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:15 INFO SparkContext: Created broadcast 0 from csv at StatementReader.java:65
+20/07/14 20:25:15 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4210421 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:16 INFO SparkContext: Starting job: csv at StatementReader.java:65
+20/07/14 20:25:16 INFO DAGScheduler: Got job 0 (csv at StatementReader.java:65) with 1 output partitions
+20/07/14 20:25:16 INFO DAGScheduler: Final stage: ResultStage 0 (csv at StatementReader.java:65)
+20/07/14 20:25:16 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:16 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:16 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at csv at StatementReader.java:65), which has no missing parents
+20/07/14 20:25:16 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 8.2 KB, free 4.6 GB)
+20/07/14 20:25:16 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 4.3 KB, free 4.6 GB)
+20/07/14 20:25:16 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.56.1:62597 (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:16 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at csv at StatementReader.java:65) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:16 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+20/07/14 20:25:16 INFO FairSchedulableBuilder: Added task set TaskSet_0.0 tasks to pool default
+20/07/14 20:25:16 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 5320 bytes)
+20/07/14 20:25:16 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+20/07/14 20:25:16 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase2662_Activity20190101_20191231.CSV, range: 0-16117, partition values: [empty row]
+20/07/14 20:25:16 INFO CodeGenerator: Code generated in 22.4855 ms
+20/07/14 20:25:16 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1320 bytes result sent to driver
+20/07/14 20:25:16 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 401 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:16 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool default
+20/07/14 20:25:16 INFO DAGScheduler: ResultStage 0 (csv at StatementReader.java:65) finished in 0.459 s
+20/07/14 20:25:16 INFO DAGScheduler: Job 0 finished: csv at StatementReader.java:65, took 0.889752 s
+20/07/14 20:25:16 INFO CodeGenerator: Code generated in 19.7589 ms
+20/07/14 20:25:17 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:17 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 11.5434 ms
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 2 from csv at StatementReader.java:65
+20/07/14 20:25:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4210421 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:17 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:17 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 59.3696 ms
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 3 from show at StatementReader.java:82
+20/07/14 20:25:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4210421 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:17 INFO SparkContext: Starting job: show at StatementReader.java:82
+20/07/14 20:25:17 INFO DAGScheduler: Got job 1 (show at StatementReader.java:82) with 1 output partitions
+20/07/14 20:25:17 INFO DAGScheduler: Final stage: ResultStage 1 (show at StatementReader.java:82)
+20/07/14 20:25:17 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:17 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:17 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[10] at show at StatementReader.java:82), which has no missing parents
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 27.8 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 11.1 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.56.1:62597 (size: 11.1 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[10] at show at StatementReader.java:82) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:17 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+20/07/14 20:25:17 INFO FairSchedulableBuilder: Added task set TaskSet_1.0 tasks to pool default
+20/07/14 20:25:17 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, PROCESS_LOCAL, 5320 bytes)
+20/07/14 20:25:17 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+20/07/14 20:25:17 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase2662_Activity20190101_20191231.CSV, range: 0-16117, partition values: [empty row]
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 16.794 ms
+20/07/14 20:25:17 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2045 bytes result sent to driver
+20/07/14 20:25:17 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 72 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:17 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool default
+20/07/14 20:25:17 INFO DAGScheduler: ResultStage 1 (show at StatementReader.java:82) finished in 0.073 s
+20/07/14 20:25:17 INFO DAGScheduler: Job 1 finished: show at StatementReader.java:82, took 0.099632 s
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 20.0057 ms
++------+------------+--------------------+----------+--------+----+
+|amount|     catgory|                desc|  postDate|tranDate|type|
++------+------------+--------------------+----------+--------+----+
+| -7.49|Food & Drink|      SRI DOSA PLACE|12/22/2019|    null|null|
+| 200.0|        null|Payment Thank You...|12/20/2019|    null|null|
+|-13.07|Food & Drink|      OPEN KITCHEN 1|12/20/2019|    null|null|
+|-13.05|Food & Drink|      OPEN KITCHEN 1|12/20/2019|    null|null|
+|-34.66|Food & Drink|FOX AND HOUND #65073|12/20/2019|    null|null|
+|-11.98|    Shopping|TOP SHELF WINE AN...|12/20/2019|    null|null|
+| -25.0|      Travel|  NEW JERSEY E-ZPASS|12/20/2019|    null|null|
+|  -6.0|      Travel|NEXUS PARKING SYS...|12/20/2019|    null|null|
+|-11.98|Food & Drink|      OPEN KITCHEN 1|12/19/2019|    null|null|
+|-14.18|Food & Drink|      OPEN KITCHEN 1|12/19/2019|    null|null|
+| -40.0|      Travel|  MTA*METROCARD/PATH|12/19/2019|    null|null|
+| -24.0|Food & Drink|   TGI FRIDAYS 60623|12/19/2019|    null|null|
+|  -6.0|      Travel|NEXUS PARKING SYS...|12/19/2019|    null|null|
+| -16.3|Food & Drink|      OPEN KITCHEN 1|12/18/2019|    null|null|
+| -65.0|      Travel|     NJT RAIL MY-TIX|12/18/2019|    null|null|
+| -5.54|Food & Drink|     STARBUCKS 4NJ45|12/18/2019|    null|null|
+|  -6.0|      Travel|NEXUS PARKING SYS...|12/18/2019|    null|null|
+|-40.29|         Gas|   SUNOCO 0368299401|12/18/2019|    null|null|
+|-14.07|Food & Drink|      OPEN KITCHEN 1|12/17/2019|    null|null|
+|  -6.0|      Travel|NEXUS PARKING SYS...|12/17/2019|    null|null|
++------+------------+--------------------+----------+--------+----+
+only showing top 20 rows
+
+20/07/14 20:25:17 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:17 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 56.8838 ms
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 5 from show at StatementReader.java:92
+20/07/14 20:25:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4210421 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:17 INFO SparkContext: Starting job: show at StatementReader.java:92
+20/07/14 20:25:17 INFO DAGScheduler: Got job 2 (show at StatementReader.java:92) with 1 output partitions
+20/07/14 20:25:17 INFO DAGScheduler: Final stage: ResultStage 2 (show at StatementReader.java:92)
+20/07/14 20:25:17 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:17 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:17 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[13] at show at StatementReader.java:92), which has no missing parents
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 41.4 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 14.4 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.56.1:62597 (size: 14.4 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[13] at show at StatementReader.java:92) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:17 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+20/07/14 20:25:17 INFO FairSchedulableBuilder: Added task set TaskSet_2.0 tasks to pool default
+20/07/14 20:25:17 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 5320 bytes)
+20/07/14 20:25:17 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+20/07/14 20:25:17 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase2662_Activity20190101_20191231.CSV, range: 0-16117, partition values: [empty row]
+20/07/14 20:25:17 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 2176 bytes result sent to driver
+20/07/14 20:25:17 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 26 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:17 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool default
+20/07/14 20:25:17 INFO DAGScheduler: ResultStage 2 (show at StatementReader.java:92) finished in 0.028 s
+20/07/14 20:25:17 INFO DAGScheduler: Job 2 finished: show at StatementReader.java:92, took 0.041788 s
+20/07/14 20:25:17 INFO CodeGenerator: Code generated in 14.4182 ms
++--------------------+------+------------+----------+--------------------+--------+
+|             account|amount|    category|      date|                desc|location|
++--------------------+------+------------+----------+--------------------+--------+
+|      SRI DOSA PLACE| -7.49|Food & Drink|12/22/2019|      SRI DOSA PLACE|    null|
+|Payment Thank You...| 200.0|        null|12/20/2019|Payment Thank You...|    null|
+|      OPEN KITCHEN 1|-13.07|Food & Drink|12/20/2019|      OPEN KITCHEN 1|    null|
+|      OPEN KITCHEN 1|-13.05|Food & Drink|12/20/2019|      OPEN KITCHEN 1|    null|
+|FOX AND HOUND #65073|-34.66|Food & Drink|12/20/2019|FOX AND HOUND #65073|    null|
+|TOP SHELF WINE AN...|-11.98|    Shopping|12/20/2019|TOP SHELF WINE AN...|    null|
+|  NEW JERSEY E-ZPASS| -25.0|      Travel|12/20/2019|  NEW JERSEY E-ZPASS|    null|
+|NEXUS PARKING SYS...|  -6.0|      Travel|12/20/2019|NEXUS PARKING SYS...|    null|
+|      OPEN KITCHEN 1|-11.98|Food & Drink|12/19/2019|      OPEN KITCHEN 1|    null|
+|      OPEN KITCHEN 1|-14.18|Food & Drink|12/19/2019|      OPEN KITCHEN 1|    null|
+|  MTA*METROCARD/PATH| -40.0|      Travel|12/19/2019|  MTA*METROCARD/PATH|    null|
+|   TGI FRIDAYS 60623| -24.0|Food & Drink|12/19/2019|   TGI FRIDAYS 60623|    null|
+|NEXUS PARKING SYS...|  -6.0|      Travel|12/19/2019|NEXUS PARKING SYS...|    null|
+|      OPEN KITCHEN 1| -16.3|Food & Drink|12/18/2019|      OPEN KITCHEN 1|    null|
+|     NJT RAIL MY-TIX| -65.0|      Travel|12/18/2019|     NJT RAIL MY-TIX|    null|
+|     STARBUCKS 4NJ45| -5.54|Food & Drink|12/18/2019|     STARBUCKS 4NJ45|    null|
+|NEXUS PARKING SYS...|  -6.0|      Travel|12/18/2019|NEXUS PARKING SYS...|    null|
+|   SUNOCO 0368299401|-40.29|         Gas|12/18/2019|   SUNOCO 0368299401|    null|
+|      OPEN KITCHEN 1|-14.07|Food & Drink|12/17/2019|      OPEN KITCHEN 1|    null|
+|NEXUS PARKING SYS...|  -6.0|      Travel|12/17/2019|NEXUS PARKING SYS...|    null|
++--------------------+------+------------+----------+--------------------+--------+
+only showing top 20 rows
+
+20/07/14 20:25:17 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:17 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#84)) > 0)
+20/07/14 20:25:17 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:17 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:17 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:17 INFO SparkContext: Created broadcast 7 from csv at StatementReader.java:65
+20/07/14 20:25:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4209140 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: csv at StatementReader.java:65
+20/07/14 20:25:18 INFO DAGScheduler: Got job 3 (csv at StatementReader.java:65) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 3 (csv at StatementReader.java:65)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[16] at csv at StatementReader.java:65), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 8.2 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 4.3 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.56.1:62597 (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[16] at csv at StatementReader.java:65) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_3.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, PROCESS_LOCAL, 5329 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase3908_Activity20190101_20191231_20200713.CSV, range: 0-14836, partition values: [empty row]
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1277 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 17 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 3 (csv at StatementReader.java:65) finished in 0.017 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 3 finished: csv at StatementReader.java:65, took 0.032762 s
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 9 from csv at StatementReader.java:65
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4209140 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 10 from show at StatementReader.java:82
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4209140 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: show at StatementReader.java:82
+20/07/14 20:25:18 INFO DAGScheduler: Got job 4 (show at StatementReader.java:82) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 4 (show at StatementReader.java:82)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[24] at show at StatementReader.java:82), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 27.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 11.1 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.56.1:62597 (size: 11.1 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[24] at show at StatementReader.java:82) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_4.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4, localhost, executor driver, partition 0, PROCESS_LOCAL, 5329 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase3908_Activity20190101_20191231_20200713.CSV, range: 0-14836, partition values: [empty row]
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 2143 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 23 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 4 (show at StatementReader.java:82) finished in 0.024 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 4 finished: show at StatementReader.java:82, took 0.038048 s
++-------+------------------+--------------------+----------+--------+----+
+| amount|           catgory|                desc|  postDate|tranDate|type|
++-------+------------------+--------------------+----------+--------+----+
+| -36.65|               Gas|RIGGINS GAS CONVE...|12/29/2019|    null|null|
+|  -19.3|      Food & Drink|      OPEN KITCHEN 1|12/29/2019|    null|null|
+| -16.95| Bills & Utilities|   J2  EFAX SERVICES|12/29/2019|    null|null|
+| -42.64| Bills & Utilities| VONAGE *PRICE+TAXES|12/27/2019|    null|null|
+|   -2.2|Fees & Adjustments|CASH ADVANCE INTE...|12/25/2019|    null|null|
+| -69.85|Fees & Adjustments|PURCHASE INTEREST...|12/25/2019|    null|null|
+|  -8.12|          Shopping|TARGET        000...|12/22/2019|    null|null|
+|  -41.0|            Travel|  MTA*METROCARD/PATH|12/22/2019|    null|null|
+| -29.12|Fees & Adjustments|     TRANSACTION FEE|12/22/2019|    null|null|
+|-582.31|          Personal|                WU *|12/22/2019|    null|null|
+|  200.0|              null|Payment Thank You...|12/20/2019|    null|null|
+| -13.34|      Food & Drink|      OPEN KITCHEN 1|12/17/2019|    null|null|
+|  -27.0|          Personal|     BOLLYWOOD SALON|12/16/2019|    null|null|
+|  -5.17|          Shopping|TARGET        000...|12/16/2019|    null|null|
+| -14.51|      Food & Drink|      OPEN KITCHEN 1|12/15/2019|    null|null|
+|  -7.49|      Food & Drink|      SRI DOSA PLACE|12/15/2019|    null|null|
+|  -6.53|      Food & Drink|      OPEN KITCHEN 1|12/15/2019|    null|null|
+| -25.86|      Food & Drink| EPICERIE BOULUD WTC|12/15/2019|    null|null|
+|  -26.0|      Food & Drink|FOX AND HOUND #65073|12/15/2019|    null|null|
+|   -6.0|            Travel|NEXUS PARKING SYS...|12/15/2019|    null|null|
++-------+------------------+--------------------+----------+--------+----+
+only showing top 20 rows
+
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 12 from show at StatementReader.java:92
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4209140 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: show at StatementReader.java:92
+20/07/14 20:25:18 INFO DAGScheduler: Got job 5 (show at StatementReader.java:92) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 5 (show at StatementReader.java:92)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[27] at show at StatementReader.java:92), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 41.4 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 14.4 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.56.1:62597 (size: 14.4 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[27] at show at StatementReader.java:92) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_5.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5, localhost, executor driver, partition 0, PROCESS_LOCAL, 5329 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase3908_Activity20190101_20191231_20200713.CSV, range: 0-14836, partition values: [empty row]
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 2405 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 21 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 5 (show at StatementReader.java:92) finished in 0.021 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 5 finished: show at StatementReader.java:92, took 0.041188 s
++--------------------+-------+------------------+----------+--------------------+--------+
+|             account| amount|          category|      date|                desc|location|
++--------------------+-------+------------------+----------+--------------------+--------+
+|RIGGINS GAS CONVE...| -36.65|               Gas|12/29/2019|RIGGINS GAS CONVE...|    null|
+|      OPEN KITCHEN 1|  -19.3|      Food & Drink|12/29/2019|      OPEN KITCHEN 1|    null|
+|   J2  EFAX SERVICES| -16.95| Bills & Utilities|12/29/2019|   J2  EFAX SERVICES|    null|
+| VONAGE *PRICE+TAXES| -42.64| Bills & Utilities|12/27/2019| VONAGE *PRICE+TAXES|    null|
+|CASH ADVANCE INTE...|   -2.2|Fees & Adjustments|12/25/2019|CASH ADVANCE INTE...|    null|
+|PURCHASE INTEREST...| -69.85|Fees & Adjustments|12/25/2019|PURCHASE INTEREST...|    null|
+|TARGET        000...|  -8.12|          Shopping|12/22/2019|TARGET        000...|    null|
+|  MTA*METROCARD/PATH|  -41.0|            Travel|12/22/2019|  MTA*METROCARD/PATH|    null|
+|     TRANSACTION FEE| -29.12|Fees & Adjustments|12/22/2019|     TRANSACTION FEE|    null|
+|                WU *|-582.31|          Personal|12/22/2019|                WU *|    null|
+|Payment Thank You...|  200.0|              null|12/20/2019|Payment Thank You...|    null|
+|      OPEN KITCHEN 1| -13.34|      Food & Drink|12/17/2019|      OPEN KITCHEN 1|    null|
+|     BOLLYWOOD SALON|  -27.0|          Personal|12/16/2019|     BOLLYWOOD SALON|    null|
+|TARGET        000...|  -5.17|          Shopping|12/16/2019|TARGET        000...|    null|
+|      OPEN KITCHEN 1| -14.51|      Food & Drink|12/15/2019|      OPEN KITCHEN 1|    null|
+|      SRI DOSA PLACE|  -7.49|      Food & Drink|12/15/2019|      SRI DOSA PLACE|    null|
+|      OPEN KITCHEN 1|  -6.53|      Food & Drink|12/15/2019|      OPEN KITCHEN 1|    null|
+| EPICERIE BOULUD WTC| -25.86|      Food & Drink|12/15/2019| EPICERIE BOULUD WTC|    null|
+|FOX AND HOUND #65073|  -26.0|      Food & Drink|12/15/2019|FOX AND HOUND #65073|    null|
+|NEXUS PARKING SYS...|   -6.0|            Travel|12/15/2019|NEXUS PARKING SYS...|    null|
++--------------------+-------+------------------+----------+--------------------+--------+
+only showing top 20 rows
+
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#168)) > 0)
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 14 from csv at StatementReader.java:41
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4197544 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: csv at StatementReader.java:41
+20/07/14 20:25:18 INFO DAGScheduler: Got job 6 (csv at StatementReader.java:41) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 6 (csv at StatementReader.java:41)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[30] at csv at StatementReader.java:41), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 8.2 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 4.3 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 192.168.56.1:62597 (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (MapPartitionsRDD[30] at csv at StatementReader.java:41) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_6.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 6, localhost, executor driver, partition 0, PROCESS_LOCAL, 5318 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 6.0 (TID 6)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/CreditCard_Barc_20190101_20191231.csv, range: 0-3240, partition values: [empty row]
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 6.0 (TID 6). 1221 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 6) in 11 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 6 (csv at StatementReader.java:41) finished in 0.014 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 6 finished: csv at StatementReader.java:41, took 0.026445 s
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 16 from csv at StatementReader.java:41
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4197544 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string ... 2 more fields>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO CodeGenerator: Code generated in 29.7583 ms
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 17 from show at StatementReader.java:59
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4197544 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: show at StatementReader.java:59
+20/07/14 20:25:18 INFO DAGScheduler: Got job 7 (show at StatementReader.java:59) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 7 (show at StatementReader.java:59)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[38] at show at StatementReader.java:59), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 25.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 10.7 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on 192.168.56.1:62597 (size: 10.7 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (MapPartitionsRDD[38] at show at StatementReader.java:59) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_7.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 7, localhost, executor driver, partition 0, PROCESS_LOCAL, 5318 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 7.0 (TID 7)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/CreditCard_Barc_20190101_20191231.csv, range: 0-3240, partition values: [empty row]
+20/07/14 20:25:18 INFO CodeGenerator: Code generated in 9.3721 ms
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 7.0 (TID 7). 1426 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 7) in 27 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 7 (show at StatementReader.java:59) finished in 0.029 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 7 finished: show at StatementReader.java:59, took 0.040905 s
++----------------+------+--------+----------+----+--------+
+|         account|amount|category|      date|desc|location|
++----------------+------+--------+----------+----+--------+
+|            null|  null|    null|      null|null|    null|
+|Payment Received|6000.0|    null|06/26/2019|null|    null|
+|Payment Received|2000.0|    null|05/21/2019|null|    null|
+|Payment Received|2000.0|    null|05/07/2019|null|    null|
+|Payment Received|1000.0|    null|07/05/2019|null|    null|
+|Payment Received|1000.0|    null|06/22/2019|null|    null|
+|Payment Received|1000.0|    null|06/11/2019|null|    null|
+|Payment Received|1000.0|    null|05/04/2019|null|    null|
+|Payment Received|1000.0|    null|04/25/2019|null|    null|
+|Payment Received|1000.0|    null|04/14/2019|null|    null|
+|Payment Received|1000.0|    null|03/28/2019|null|    null|
+|Payment Received|1000.0|    null|03/08/2019|null|    null|
+|Payment Received|1000.0|    null|02/28/2019|null|    null|
+|Payment Received|1000.0|    null|01/12/2019|null|    null|
+|Payment Received| 500.0|    null|09/06/2019|null|    null|
+|Payment Received| 500.0|    null|08/26/2019|null|    null|
+|Payment Received|332.16|    null|11/04/2019|null|    null|
+|    FLIGHT CENTS| -0.01|    null|05/23/2019|null|    null|
+|    FLIGHT CENTS| -0.35|    null|12/23/2019|null|    null|
+|    FLIGHT CENTS| -0.35|    null|10/23/2019|null|    null|
++----------------+------+--------+----------+----+--------+
+only showing top 20 rows
+
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#216)) > 0)
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 19 from csv at StatementReader.java:99
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4240891 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: csv at StatementReader.java:99
+20/07/14 20:25:18 INFO DAGScheduler: Got job 8 (csv at StatementReader.java:99) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 8 (csv at StatementReader.java:99)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[41] at csv at StatementReader.java:99), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 8.2 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 4.3 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on 192.168.56.1:62597 (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 20 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[41] at csv at StatementReader.java:99) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks
+20/07/14 20:25:18 INFO FairSchedulableBuilder: Added task set TaskSet_8.0 tasks to pool default
+20/07/14 20:25:18 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 8, localhost, executor driver, partition 0, PROCESS_LOCAL, 5304 bytes)
+20/07/14 20:25:18 INFO Executor: Running task 0.0 in stage 8.0 (TID 8)
+20/07/14 20:25:18 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/bofa53022019YearEnd.txt, range: 0-46587, partition values: [empty row]
+20/07/14 20:25:18 INFO Executor: Finished task 0.0 in stage 8.0 (TID 8). 1248 bytes result sent to driver
+20/07/14 20:25:18 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 8) in 10 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:18 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool default
+20/07/14 20:25:18 INFO DAGScheduler: ResultStage 8 (csv at StatementReader.java:99) finished in 0.011 s
+20/07/14 20:25:18 INFO DAGScheduler: Job 8 finished: csv at StatementReader.java:99, took 0.022915 s
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 21 from csv at StatementReader.java:99
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4240891 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:18 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string ... 1 more fields>
+20/07/14 20:25:18 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 22 from show at StatementReader.java:100
+20/07/14 20:25:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4240891 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:18 INFO SparkContext: Starting job: show at StatementReader.java:100
+20/07/14 20:25:18 INFO DAGScheduler: Got job 9 (show at StatementReader.java:100) with 1 output partitions
+20/07/14 20:25:18 INFO DAGScheduler: Final stage: ResultStage 9 (show at StatementReader.java:100)
+20/07/14 20:25:18 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:18 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:18 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[49] at show at StatementReader.java:100), which has no missing parents
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 11.2 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 6.8 KB, free 4.6 GB)
+20/07/14 20:25:18 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on 192.168.56.1:62597 (size: 6.8 KB, free: 4.6 GB)
+20/07/14 20:25:18 INFO SparkContext: Created broadcast 23 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[49] at show at StatementReader.java:100) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:19 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks
+20/07/14 20:25:19 INFO FairSchedulableBuilder: Added task set TaskSet_9.0 tasks to pool default
+20/07/14 20:25:19 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 9, localhost, executor driver, partition 0, PROCESS_LOCAL, 5304 bytes)
+20/07/14 20:25:19 INFO Executor: Running task 0.0 in stage 9.0 (TID 9)
+20/07/14 20:25:19 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/bofa53022019YearEnd.txt, range: 0-46587, partition values: [empty row]
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 8.0426 ms
+20/07/14 20:25:19 INFO Executor: Finished task 0.0 in stage 9.0 (TID 9). 1928 bytes result sent to driver
+20/07/14 20:25:19 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 9) in 20 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:19 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool default
+20/07/14 20:25:19 INFO DAGScheduler: ResultStage 9 (show at StatementReader.java:100) finished in 0.021 s
+20/07/14 20:25:19 INFO DAGScheduler: Job 9 finished: show at StatementReader.java:100, took 0.031506 s
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 7.0536 ms
++--------------------+--------+-------+
+|                 _c0|     _c1|    _c2|
++--------------------+--------+-------+
+|      #Entertainment|$6053.45| Dining|
+|01/02/19 METRO PA...|      NJ|   4.46|
+|01/02/19 SARAVANA...|      NJ|  19.00|
+|01/03/19 METRO PA...|      NJ|   2.02|
+|01/03/19 MIRCHI E...|      NJ|  18.90|
+|01/04/19 SCOTIA 6...|      NY|   4.00|
+|01/04/19 SCOTIA 6...|      NY|   6.26|
+|01/04/19 TST CAKE...|      NJ|  13.57|
+|01/05/19 DUNKIN 3...|      NJ|   6.06|
+|01/05/19 SCOTIA 6...|      NY|   5.72|
+|01/05/19 SCOTIA 6...|      NY|   7.02|
+|01/05/19 SQ SQ AM...|      NJ|  15.75|
+|01/07/19 APPLEBEE...|      NJ| 105.92|
+|01/07/19 BURGER K...|      NJ|   5.95|
+|01/07/19 MCDONALD...|      NJ|   2.03|
+|01/07/19 SCOTIA 6...|      NY|   5.01|
+|01/08/19 TACO BEL...|      NJ|   6.80|
+|01/09/19 SCOTIA 6...|      NY|   5.72|
+|01/09/19 SCOTIA 6...|      NY|   6.38|
+|01/09/19 SRI DOSA...|      NJ|  13.90|
++--------------------+--------+-------+
+only showing top 20 rows
+
+20/07/14 20:25:19 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:19 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:19 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string ... 1 more fields>
+20/07/14 20:25:19 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 24.5536 ms
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 62.2123 ms
+20/07/14 20:25:19 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:19 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO SparkContext: Created broadcast 24 from show at StatementReader.java:149
+20/07/14 20:25:19 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4240891 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:19 INFO SparkContext: Starting job: show at StatementReader.java:149
+20/07/14 20:25:19 INFO DAGScheduler: Registering RDD 52 (show at StatementReader.java:149)
+20/07/14 20:25:19 INFO DAGScheduler: Got job 10 (show at StatementReader.java:149) with 1 output partitions
+20/07/14 20:25:19 INFO DAGScheduler: Final stage: ResultStage 11 (show at StatementReader.java:149)
+20/07/14 20:25:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 10)
+20/07/14 20:25:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 10)
+20/07/14 20:25:19 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[52] at show at StatementReader.java:149), which has no missing parents
+20/07/14 20:25:19 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 53.6 KB, free 4.6 GB)
+20/07/14 20:25:19 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 22.5 KB, free 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on 192.168.56.1:62597 (size: 22.5 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[52] at show at StatementReader.java:149) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:19 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks
+20/07/14 20:25:19 INFO FairSchedulableBuilder: Added task set TaskSet_10.0 tasks to pool default
+20/07/14 20:25:19 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 10, localhost, executor driver, partition 0, PROCESS_LOCAL, 5293 bytes)
+20/07/14 20:25:19 INFO Executor: Running task 0.0 in stage 10.0 (TID 10)
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 6.5824 ms
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 119
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 216
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 313
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 91
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 154
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 124
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 248
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 282
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 64
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 280
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 192.168.56.1:62597 in memory (size: 11.1 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 6.7325 ms
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 189
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 192.168.56.1:62597 in memory (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 215
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 60
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 278
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 159
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 63
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 158
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_22_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 281
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 94
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 246
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 314
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 0
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 89
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 253
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 1
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 151
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 312
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 188
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_15_piece0 on 192.168.56.1:62597 in memory (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_18_piece0 on 192.168.56.1:62597 in memory (size: 10.7 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 7.6429 ms
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 342
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_8_piece0 on 192.168.56.1:62597 in memory (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 251
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_19_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 59
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 55
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 184
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 316
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_13_piece0 on 192.168.56.1:62597 in memory (size: 14.4 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 218
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 2
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 309
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 249
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 152
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 4
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 192.168.56.1:62597 in memory (size: 14.4 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 244
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 90
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 56
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 317
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 61
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 149
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 214
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 252
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_23_piece0 on 192.168.56.1:62597 in memory (size: 6.8 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 156
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 54
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 122
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_4_piece0 on 192.168.56.1:62597 in memory (size: 11.1 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 217
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 58
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_16_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 315
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 92
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 219
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 245
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 57
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 93
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 150
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_10_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 121
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 186
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_9_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 283
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 185
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 120
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 153
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 311
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 157
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 279
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 5
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 3
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 250
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 62
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 14.2252 ms
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_21_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 123
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 187
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 310
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_20_piece0 on 192.168.56.1:62597 in memory (size: 4.3 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_14_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 155
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_12_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO BlockManagerInfo: Removed broadcast_17_piece0 on 192.168.56.1:62597 in memory (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 308
+20/07/14 20:25:19 INFO ContextCleaner: Cleaned accumulator 247
+20/07/14 20:25:19 INFO CodeGenerator: Code generated in 5.8734 ms
+20/07/14 20:25:19 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/bofa53022019YearEnd.txt, range: 0-46587, partition values: [empty row]
+20/07/14 20:25:20 INFO Executor: Finished task 0.0 in stage 10.0 (TID 10). 2491 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 10) in 768 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool default
+20/07/14 20:25:20 INFO DAGScheduler: ShuffleMapStage 10 (show at StatementReader.java:149) finished in 0.769 s
+20/07/14 20:25:20 INFO DAGScheduler: looking for newly runnable stages
+20/07/14 20:25:20 INFO DAGScheduler: running: Set()
+20/07/14 20:25:20 INFO DAGScheduler: waiting: Set(ResultStage 11)
+20/07/14 20:25:20 INFO DAGScheduler: failed: Set()
+20/07/14 20:25:20 INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[55] at show at StatementReader.java:149), which has no missing parents
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 35.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 17.7 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on 192.168.56.1:62597 (size: 17.7 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 26 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[55] at show at StatementReader.java:149) (first 15 tasks are for partitions Vector(0))
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks
+20/07/14 20:25:20 INFO FairSchedulableBuilder: Added task set TaskSet_11.0 tasks to pool default
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 11, localhost, executor driver, partition 0, PROCESS_LOCAL, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 0.0 in stage 11.0 (TID 11)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 0 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 3 ms
+20/07/14 20:25:20 INFO Executor: Finished task 0.0 in stage 11.0 (TID 11). 2607 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 11) in 21 ms on localhost (executor driver) (1/1)
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool default
+20/07/14 20:25:20 INFO DAGScheduler: ResultStage 11 (show at StatementReader.java:149) finished in 0.023 s
+20/07/14 20:25:20 INFO DAGScheduler: Job 10 finished: show at StatementReader.java:149, took 0.820218 s
+20/07/14 20:25:20 INFO SparkContext: Starting job: show at StatementReader.java:149
+20/07/14 20:25:20 INFO MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 300 bytes
+20/07/14 20:25:20 INFO DAGScheduler: Got job 11 (show at StatementReader.java:149) with 4 output partitions
+20/07/14 20:25:20 INFO DAGScheduler: Final stage: ResultStage 13 (show at StatementReader.java:149)
+20/07/14 20:25:20 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 12)
+20/07/14 20:25:20 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:20 INFO DAGScheduler: Submitting ResultStage 13 (MapPartitionsRDD[55] at show at StatementReader.java:149), which has no missing parents
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 35.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 17.7 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on 192.168.56.1:62597 (size: 17.7 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:20 INFO DAGScheduler: Submitting 4 missing tasks from ResultStage 13 (MapPartitionsRDD[55] at show at StatementReader.java:149) (first 15 tasks are for partitions Vector(1, 2, 3, 4))
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Adding task set 13.0 with 4 tasks
+20/07/14 20:25:20 INFO FairSchedulableBuilder: Added task set TaskSet_13.0 tasks to pool default
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 12, localhost, executor driver, partition 1, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 0.0 in stage 13.0 (TID 12)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 0.0 in stage 13.0 (TID 12). 2832 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 1.0 in stage 13.0 (TID 13, localhost, executor driver, partition 2, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 12) in 29 ms on localhost (executor driver) (1/4)
+20/07/14 20:25:20 INFO Executor: Running task 1.0 in stage 13.0 (TID 13)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 1.0 in stage 13.0 (TID 13). 3040 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 2.0 in stage 13.0 (TID 14, localhost, executor driver, partition 3, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 1.0 in stage 13.0 (TID 13) in 13 ms on localhost (executor driver) (2/4)
+20/07/14 20:25:20 INFO Executor: Running task 2.0 in stage 13.0 (TID 14)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 2.0 in stage 13.0 (TID 14). 2821 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 3.0 in stage 13.0 (TID 15, localhost, executor driver, partition 4, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 2.0 in stage 13.0 (TID 14) in 13 ms on localhost (executor driver) (3/4)
+20/07/14 20:25:20 INFO Executor: Running task 3.0 in stage 13.0 (TID 15)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+20/07/14 20:25:20 INFO Executor: Finished task 3.0 in stage 13.0 (TID 15). 2728 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 3.0 in stage 13.0 (TID 15) in 82 ms on localhost (executor driver) (4/4)
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool default
+20/07/14 20:25:20 INFO DAGScheduler: ResultStage 13 (show at StatementReader.java:149) finished in 0.136 s
+20/07/14 20:25:20 INFO DAGScheduler: Job 11 finished: show at StatementReader.java:149, took 0.152853 s
+20/07/14 20:25:20 INFO SparkContext: Starting job: show at StatementReader.java:149
+20/07/14 20:25:20 INFO DAGScheduler: Got job 12 (show at StatementReader.java:149) with 9 output partitions
+20/07/14 20:25:20 INFO DAGScheduler: Final stage: ResultStage 15 (show at StatementReader.java:149)
+20/07/14 20:25:20 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 14)
+20/07/14 20:25:20 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:20 INFO DAGScheduler: Submitting ResultStage 15 (MapPartitionsRDD[55] at show at StatementReader.java:149), which has no missing parents
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 35.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 17.7 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on 192.168.56.1:62597 (size: 17.7 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 28 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:20 INFO DAGScheduler: Submitting 9 missing tasks from ResultStage 15 (MapPartitionsRDD[55] at show at StatementReader.java:149) (first 15 tasks are for partitions Vector(5, 6, 7, 8, 9, 10, 11, 12, 13))
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Adding task set 15.0 with 9 tasks
+20/07/14 20:25:20 INFO FairSchedulableBuilder: Added task set TaskSet_15.0 tasks to pool default
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 16, localhost, executor driver, partition 5, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 0.0 in stage 15.0 (TID 16)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+20/07/14 20:25:20 INFO Executor: Finished task 0.0 in stage 15.0 (TID 16). 2693 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 1.0 in stage 15.0 (TID 17, localhost, executor driver, partition 6, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 1.0 in stage 15.0 (TID 17)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 16) in 10 ms on localhost (executor driver) (1/9)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 1.0 in stage 15.0 (TID 17). 2773 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 2.0 in stage 15.0 (TID 18, localhost, executor driver, partition 7, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 2.0 in stage 15.0 (TID 18)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 1.0 in stage 15.0 (TID 17) in 11 ms on localhost (executor driver) (2/9)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 2.0 in stage 15.0 (TID 18). 2901 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 3.0 in stage 15.0 (TID 19, localhost, executor driver, partition 8, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 2.0 in stage 15.0 (TID 18) in 11 ms on localhost (executor driver) (3/9)
+20/07/14 20:25:20 INFO Executor: Running task 3.0 in stage 15.0 (TID 19)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+20/07/14 20:25:20 INFO Executor: Finished task 3.0 in stage 15.0 (TID 19). 2755 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 4.0 in stage 15.0 (TID 20, localhost, executor driver, partition 9, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 3.0 in stage 15.0 (TID 19) in 14 ms on localhost (executor driver) (4/9)
+20/07/14 20:25:20 INFO Executor: Running task 4.0 in stage 15.0 (TID 20)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+20/07/14 20:25:20 INFO Executor: Finished task 4.0 in stage 15.0 (TID 20). 2916 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 5.0 in stage 15.0 (TID 21, localhost, executor driver, partition 10, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 5.0 in stage 15.0 (TID 21)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 4.0 in stage 15.0 (TID 20) in 12 ms on localhost (executor driver) (5/9)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 5.0 in stage 15.0 (TID 21). 2736 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 6.0 in stage 15.0 (TID 22, localhost, executor driver, partition 11, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 6.0 in stage 15.0 (TID 22)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 5.0 in stage 15.0 (TID 21) in 12 ms on localhost (executor driver) (6/9)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 6.0 in stage 15.0 (TID 22). 2743 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 7.0 in stage 15.0 (TID 23, localhost, executor driver, partition 12, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 6.0 in stage 15.0 (TID 22) in 10 ms on localhost (executor driver) (7/9)
+20/07/14 20:25:20 INFO Executor: Running task 7.0 in stage 15.0 (TID 23)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+20/07/14 20:25:20 INFO Executor: Finished task 7.0 in stage 15.0 (TID 23). 2988 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 8.0 in stage 15.0 (TID 24, localhost, executor driver, partition 13, ANY, 4726 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 7.0 in stage 15.0 (TID 23) in 9 ms on localhost (executor driver) (8/9)
+20/07/14 20:25:20 INFO Executor: Running task 8.0 in stage 15.0 (TID 24)
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks out of 1 blocks
+20/07/14 20:25:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+20/07/14 20:25:20 INFO Executor: Finished task 8.0 in stage 15.0 (TID 24). 3004 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 8.0 in stage 15.0 (TID 24) in 11 ms on localhost (executor driver) (9/9)
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Removed TaskSet 15.0, whose tasks have all completed, from pool default
+20/07/14 20:25:20 INFO DAGScheduler: ResultStage 15 (show at StatementReader.java:149) finished in 0.096 s
+20/07/14 20:25:20 INFO DAGScheduler: Job 12 finished: show at StatementReader.java:149, took 0.105112 s
+20/07/14 20:25:20 INFO CodeGenerator: Code generated in 7.3501 ms
++--------------------+--------------------+--------------------+------------------+
+|            category|                desc|             account|       sum(amount)|
++--------------------+--------------------+--------------------+------------------+
+|       Entertainment| TST DOSTOROSNY-W...|  TST DOSTOROSNY-WFC|232.53000000000003|
+|            Clothing| TJ MAXX 828 EAST...|             TJ MAXX|             12.99|
+|       Entertainment| ROYAL REGENCY BA...|       ROYAL REGENCY|              18.0|
+|Travel and transp...| WWPA PARKING PRI...|        WWPA PARKING|               6.0|
+|            Airline |                null|                null| 4738.639999999996|
+|            Clothing| CHBCHUBB INS SCI...|                null|             251.5|
+|              Health| RITE AID STORE -...|                null|              17.4|
+|       Entertainment|               of 20|               10 of|              null|
+|          Food Store| PATIDAR CASH CAR...|                null|              92.4|
+|            Clothing| VFS Global Servi...|                null|             10.91|
+|            Airline | QUICK CHEK FOOD ...|                null| 81.23000000000002|
+|       Entertainment| SQ SQ TARTINERY ...|                null| 64.46000000000001|
+|       Entertainment|               of 20|                null|              null|
+|          Food Store| SUBZI MANDI CASH...|                null|             64.93|
+|Travel and transp...| NJT MOBILE 3001 ...|          NJT MOBILE|            280.85|
+|            Clothing| WPYGOFUNDME 855-...|WPYGOFUNDME 855-4...|              null|
+|       Entertainment| STARBUCKS STORE ...|                null|             13.22|
+|       Entertainment| HOTEL SWEEKAR HY...|       HOTEL SWEEKAR|              null|
+|        Merchandise | HUDSONNEWS ST877...|    HUDSONNEWS ST877|              5.99|
+|       Entertainment|     OLIVES NEW YORK|          OLIVES NEW|             11.37|
++--------------------+--------------------+--------------------+------------------+
+only showing top 20 rows
+
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string ... 2 more fields>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string ... 1 more fields>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string, _c4: string ... 1 more field>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string, _c3: string ... 2 more fields>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Pruning directories with: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Post-Scan Filters: 
+20/07/14 20:25:20 INFO FileSourceStrategy: Output Data Schema: struct<_c0: string, _c1: string, _c2: string ... 1 more fields>
+20/07/14 20:25:20 INFO FileSourceScanExec: Pushed Filters: 
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 29 from foreach at StatementReader.java:158
+20/07/14 20:25:20 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4210421 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 30 from foreach at StatementReader.java:158
+20/07/14 20:25:20 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4209140 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 31 from foreach at StatementReader.java:158
+20/07/14 20:25:20 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4197544 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:20 INFO CodeGenerator: Code generated in 25.5803 ms
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 167.8 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 20.9 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on 192.168.56.1:62597 (size: 20.9 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 32 from foreach at StatementReader.java:158
+20/07/14 20:25:20 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4240891 bytes, open cost is considered as scanning 4194304 bytes.
+20/07/14 20:25:20 INFO SparkContext: Starting job: foreach at StatementReader.java:158
+20/07/14 20:25:20 INFO DAGScheduler: Got job 13 (foreach at StatementReader.java:158) with 4 output partitions
+20/07/14 20:25:20 INFO DAGScheduler: Final stage: ResultStage 16 (foreach at StatementReader.java:158)
+20/07/14 20:25:20 INFO DAGScheduler: Parents of final stage: List()
+20/07/14 20:25:20 INFO DAGScheduler: Missing parents: List()
+20/07/14 20:25:20 INFO DAGScheduler: Submitting ResultStage 16 (MapPartitionsRDD[66] at foreach at StatementReader.java:158), which has no missing parents
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 123.2 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 37.0 KB, free 4.6 GB)
+20/07/14 20:25:20 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on 192.168.56.1:62597 (size: 37.0 KB, free: 4.6 GB)
+20/07/14 20:25:20 INFO SparkContext: Created broadcast 33 from broadcast at DAGScheduler.scala:1006
+20/07/14 20:25:20 INFO DAGScheduler: Submitting 4 missing tasks from ResultStage 16 (MapPartitionsRDD[66] at foreach at StatementReader.java:158) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+20/07/14 20:25:20 INFO TaskSchedulerImpl: Adding task set 16.0 with 4 tasks
+20/07/14 20:25:20 INFO FairSchedulableBuilder: Added task set TaskSet_16.0 tasks to pool default
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 25, localhost, executor driver, partition 0, PROCESS_LOCAL, 5429 bytes)
+20/07/14 20:25:20 INFO Executor: Running task 0.0 in stage 16.0 (TID 25)
+20/07/14 20:25:20 INFO CodeGenerator: Code generated in 9.1822 ms
+20/07/14 20:25:20 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase2662_Activity20190101_20191231.CSV, range: 0-16117, partition values: [empty row]
+20/07/14 20:25:20 INFO Executor: Finished task 0.0 in stage 16.0 (TID 25). 2700 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 1.0 in stage 16.0 (TID 26, localhost, executor driver, partition 1, PROCESS_LOCAL, 5438 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 25) in 49 ms on localhost (executor driver) (1/4)
+20/07/14 20:25:20 INFO Executor: Running task 1.0 in stage 16.0 (TID 26)
+20/07/14 20:25:20 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/Chase3908_Activity20190101_20191231_20200713.CSV, range: 0-14836, partition values: [empty row]
+20/07/14 20:25:20 INFO Executor: Finished task 1.0 in stage 16.0 (TID 26). 2700 bytes result sent to driver
+20/07/14 20:25:20 INFO TaskSetManager: Starting task 2.0 in stage 16.0 (TID 27, localhost, executor driver, partition 2, PROCESS_LOCAL, 5427 bytes)
+20/07/14 20:25:20 INFO TaskSetManager: Finished task 1.0 in stage 16.0 (TID 26) in 27 ms on localhost (executor driver) (2/4)
+20/07/14 20:25:20 INFO Executor: Running task 2.0 in stage 16.0 (TID 27)
+20/07/14 20:25:20 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/CreditCard_Barc_20190101_20191231.csv, range: 0-3240, partition values: [empty row]
+20/07/14 20:25:21 INFO Executor: Finished task 2.0 in stage 16.0 (TID 27). 2700 bytes result sent to driver
+20/07/14 20:25:21 INFO TaskSetManager: Starting task 3.0 in stage 16.0 (TID 28, localhost, executor driver, partition 3, PROCESS_LOCAL, 5413 bytes)
+20/07/14 20:25:21 INFO TaskSetManager: Finished task 2.0 in stage 16.0 (TID 27) in 21 ms on localhost (executor driver) (3/4)
+20/07/14 20:25:21 INFO Executor: Running task 3.0 in stage 16.0 (TID 28)
+20/07/14 20:25:21 INFO FileScanRDD: Reading File path: file:///D:/Innovative%20Expenses/2019filing/bofa53022019YearEnd.txt, range: 0-46587, partition values: [empty row]
+20/07/14 20:25:21 INFO Executor: Finished task 3.0 in stage 16.0 (TID 28). 2700 bytes result sent to driver
+20/07/14 20:25:21 INFO TaskSetManager: Finished task 3.0 in stage 16.0 (TID 28) in 50 ms on localhost (executor driver) (4/4)
+20/07/14 20:25:21 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool default
+20/07/14 20:25:21 INFO DAGScheduler: ResultStage 16 (foreach at StatementReader.java:158) finished in 0.145 s
+20/07/14 20:25:21 INFO DAGScheduler: Job 13 finished: foreach at StatementReader.java:158, took 0.184298 s
+20/07/14 20:25:21 INFO SparkContext: Invoking stop() from shutdown hook
+20/07/14 20:25:21 INFO SparkUI: Stopped Spark web UI at http://192.168.56.1:4040
+20/07/14 20:25:21 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+20/07/14 20:25:21 INFO MemoryStore: MemoryStore cleared
+20/07/14 20:25:21 INFO BlockManager: BlockManager stopped
+20/07/14 20:25:21 INFO BlockManagerMaster: BlockManagerMaster stopped
+20/07/14 20:25:21 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+20/07/14 20:25:21 INFO SparkContext: Successfully stopped SparkContext
+20/07/14 20:25:21 INFO ShutdownHookManager: Shutdown hook called
+20/07/14 20:25:21 INFO ShutdownHookManager: Deleting directory C:\Users\praka\AppData\Local\Temp\spark-68c0ac18-542a-4589-afa6-177a1227e7a9
