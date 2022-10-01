@@ -81,9 +81,7 @@ public class StockRandomForestPredictor implements Serializable{
 		LabeledPoint lb = null;//new LabeledPoint();
 		Dataset<LabeledPoint> points = voDataset.map(x->{
 			LabeledPoint ret = null;
-			String dbs[]=x.getDayMonth().split("/"); 
-			double db = Double.valueOf(dbs[0]+dbs[1]);
-			Vector vec = Vectors.dense(new double[] {
+				Vector vec = Vectors.dense(new double[] {
 					x.getClosingPrice(),x.getOpenPrice(),x.getHighPrice(),x.getLowPrice(),x.getPercent()
 			});
 			ret = new LabeledPoint(x.getHighPrice(),vec);

@@ -17,22 +17,37 @@ public class PriceVO implements Serializable{
 	private Double closingPrice;
 	private Long volume;
 	private double percent;
-	private String time;
+	private String weekDay;
+	private int dayOfWeek;
+	private Date date;
+	private String dateStr;
+	///
+	private double price;
+	 private double changedBy;
+	 private String company;
+	 
+	final String SUNDAY="SUNDAY",MONDAY="MONDAY",TUESDAY="TUESDAY",WEDNESDAY="WEDNESDAY",THURSDAY="THURSDAY",FRIDAY="FRIDAY",SATURDAY="SATURDAY";
+	public String getDateStr() {
+		return dateStr;
+	}
+
+
+	public void setDateStr(String dateStr) {
+		this.dateStr = dateStr;
+	}
+
+
 	public Date getDate() {
 		return date;
 	}
 
 
 	public void setDate(Date date) {
+	//	this.dateStr=date.toString();
 		this.date = date;
 	}
 
-	private String dayMonth;
-	private Date date;
-	///
-	private double price;
-	 private double changedBy;
-	 private String company;
+	
 	
 	public double getPrice() {
 		return price;
@@ -142,29 +157,70 @@ public class PriceVO implements Serializable{
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+ 
 
-	public String getTime() {
-		return time;
+	public String getWeekDay() {
+		return weekDay;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+
+	public void setWeekDay(String weekDay) {
+		this.weekDay = weekDay;
 	}
 
-	public String getDayMonth() {
-		return dayMonth;
+
+	public int getDayOfWeek() {
+		
+		return dayOfWeek;
 	}
 
-	public void setDayMonth(String dayMonth) {
-		this.dayMonth = dayMonth;
+	public void setDayOfWeek(int dayMonth) {
+		switch(dayMonth) {
+		case Calendar.SUNDAY:{
+		//	dayMonth 
+			this.weekDay=SUNDAY;
+			break;
+		}
+		case Calendar.MONDAY:{
+			//	dayMonth 
+				this.weekDay=MONDAY;
+				break;
+			}
+		case Calendar.TUESDAY:{
+			//	dayMonth 
+				this.weekDay=TUESDAY;
+				break;
+			}
+		case Calendar.WEDNESDAY:{
+			//	dayMonth 
+				this.weekDay=WEDNESDAY;
+				break;
+			}
+		case Calendar.THURSDAY:{
+			//	dayMonth 
+				this.weekDay=THURSDAY;
+				break;
+			}
+		case Calendar.FRIDAY:{
+			//	dayMonth 
+				this.weekDay=FRIDAY;
+				break;
+			}
+		case Calendar.SATURDAY:{
+			//	dayMonth 
+				this.weekDay=SATURDAY;
+				break;
+			}
+		}
+		this.dayOfWeek = dayMonth;
 	}
 
 	private void setActTime(Long valueOf) {
 		Date actDate =new Date(valueOf*1000); 
-		time = actDate.toString();
+		weekDay = actDate.toString();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(actDate);
-		this.dayMonth = cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US)+cal.get(Calendar.DAY_OF_MONTH) ;
+		//this.dayMonth = //cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US)+cal.get(Calendar.DAY_OF_MONTH) ;
 		
 	}
 

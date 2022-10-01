@@ -6,15 +6,18 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.ml.feature.StringIndexer;
 import org.apache.spark.ml.feature.VectorAssembler;
 import org.apache.spark.ml.regression.LinearRegression;
 import org.apache.spark.ml.regression.LinearRegressionModel;
 import org.apache.spark.ml.regression.LinearRegressionSummary;
 import org.apache.spark.ml.Pipeline;
+import org.apache.spark.ml.PipelineModel;
 import org.apache.spark.ml.PipelineStage;
 import org.apache.spark.ml.clustering.KMeans;
 import org.apache.spark.ml.clustering.KMeansModel;
+import org.apache.spark.sql.Column;
 //import org.apache.spark.ml.clustering.
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
@@ -32,9 +35,7 @@ import com.stocks.DailyStocks.vo.PriceVO;
 
 public class StockLinearRegressionClassification extends SparkParent implements Serializable {
 
-	/**
-	 * 
-	 */
+ 
 	private static final long serialVersionUID = 396857241591182611L;
 	
 	static Logger log = LogManager.getLogger(StockLinearRegressionClassification.class);
@@ -51,38 +52,45 @@ public class StockLinearRegressionClassification extends SparkParent implements 
 		modelData = values[1];
 		testData = values[2];
 		trainData = linearData.limit(1230); 
-		
-//		StringIndexer st = new StringIndexer();
-//		st.setInputCol("dayMonth");
-//		st.setOutputCol("monthAndDay");
-//		 
+		//trainData.foreach(vo->vo.setPrice(vo.getClosingPrice()));
+		testData = testData.map(new MapFunction<PriceVO,PriceVO>() {
+ 			private static final long serialVersionUID = 1L;
+ 			@Override
+			public PriceVO call(PriceVO value) throws Exception {
+				value.setPrice(0);
+				return value;
+			}
+		}, Encoders.bean(PriceVO.class));
+		testData.show();
 		LinearRegression lr = new LinearRegression()
 				.setMaxIter(10)
 				.setAggregationDepth(5)
-				//.setRegParam(0.8)
  				.setStandardization(true)
- 				//.setFeaturesCol("features")
-	 			.setElasticNetParam(0.8)
-				//.setLabelCol("percent")
-				;
-		 
+  	 			.setElasticNetParam(0.8)
+  	 			.setFeaturesCol("features")
+  	 			.setLabelCol("price")
+ 				;
+		
 	 	VectorAssembler assembler = new VectorAssembler()
-				.setInputCols(new String[] {"openPrice","closingPrice","volume","dayMonth"})
+				.setInputCols(new String[] {"openPrice","closingPrice","volume","dayOfWeek" })
 				.setOutputCol("features")
 				;
-	 	 
-//		
-//		Dataset<Row> select = trainData.select("openPrice","volume","closingPrice","dayMonth");
-//		Dataset<Row> testSel = testData.select("openPrice","volume","closingPrice","dayMonth");
-//		
-		 Dataset<Row> ret = assembler.transform(trainData);
-//		 System.out.println("Showing dataset");
+	 	
+	 	Dataset<Row> select = trainData.select("openPrice","closingPrice","volume","dayOfWeek","price");
+	 	 Pipeline pipes = new Pipeline().setStages(new PipelineStage[]{assembler,lr});
+	 	PipelineModel lm =  pipes.fit(select);
+	    Dataset<Row> predictions =lm.transform(testData);
+
+	    predictions.show();
+		
+		Dataset<Row> testSel = testData.select("openPrice","volume","closingPrice","dayOfWeek","price");
+		select.show();
+ 	 Dataset<Row> ret = assembler.transform(select);
 		 ret.show();
-//		 Dataset<Row> testVector = assembler.transform(testSel);
-//		 lr.setFeaturesCol("features");
-//		 lr.setLabelCol("percent");
-		LinearRegressionModel model = lr.fit(trainData);
-		LinearRegressionSummary results = model.evaluate(modelData);
+		LinearRegressionModel model = lr.fit(ret);
+	  Dataset<Row> testRows =  assembler.transform(testSel);
+	
+		LinearRegressionSummary results = model.evaluate(testRows);
 		results.predictions().show();
 		//System.out.println("Showing transform");
 		//model.transform(testVector).show();;
@@ -121,6 +129,8 @@ public class StockLinearRegressionClassification extends SparkParent implements 
 	}
 	
 	private Dataset<PriceVO> getCsvDataset() {
+		Converter.COMP="TESLA INC";
+		Converter.SYMBOL="TSLA";
 	 	SparkSession session = getSession();
 		Dataset<Row> stockRows = session.read().option("header", true).csv("D:/stocks/TSLA.csv");
 		stockRows.show();

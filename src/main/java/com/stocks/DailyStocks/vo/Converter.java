@@ -1,6 +1,8 @@
 package com.stocks.DailyStocks.vo;
  
 import java.util.Date;
+import java.util.Locale;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,7 +12,7 @@ import org.apache.log4j.Logger;
 import org.apache.spark.sql.Row;
 import org.bson.Document;
 
-public class Converter {
+public class Converter implements Serializable {
 
 	static Logger log = LogManager.getLogger(Converter.class);
 	final static String OP="openPrice";
@@ -22,18 +24,17 @@ public class Converter {
  	final static String TIME="time";
 	final static String DAY="dayMonth";
 	final static String SYM="symbol";
+	public static String SYMBOL="";
+	public static String COMP="";
 	
 	public static PriceVO convert(Document x, PriceVO vo) {
 		 	x.entrySet().forEach(entry->{
 				switch(entry.getKey()) {
 				case TIME:{
-					vo.setTime((String)entry.getValue());
+				//	vo.setTime((String)entry.getValue());
 					break;
 				}
-				case DAY:{
-					vo.setDayMonth((String)entry.getValue());
-					break;
-				}
+				 
 				case SYM:{
 					vo.setSymbol((String)entry.getValue());
 					break;
@@ -63,39 +64,48 @@ public class Converter {
 			return vo;
 		 
 	}
-	static String getDay(Date date)
+	static int getDay(Date date)
 	{
 		String ret = "";
 		Calendar form = Calendar.getInstance();
 		form.setTime(date);
-		switch(form.get(Calendar.DAY_OF_WEEK))
+		if(form.get(Calendar.DAY_OF_WEEK)== 7)
 		{
-		case Calendar.SUNDAY: return "SUNDAY";
-		case Calendar.SATURDAY: return "SATURDAY";
- 		case Calendar.MONDAY: return "MONDAY";
-		case Calendar.TUESDAY: return "TUESDAY";
-		case Calendar.WEDNESDAY: return "WEDNESDAY";
-		case Calendar.THURSDAY: return "THURSDAY";
-		case Calendar.FRIDAY: return "FRIDAY";
-		
+			log.info("Weekend is coming");
 		}
-		return ret;
+		return form.get(Calendar.DAY_OF_WEEK);
+		 
+	}
+	public static Date getDate(String[] date)
+	{
+		//yyyy-mm-dd
+		Date dated = null;
+		Calendar cal = Calendar.getInstance(Locale.US);
+		cal.set(Calendar.YEAR, Integer.parseInt(date[0]));
+		cal.set(Calendar.MONTH, Integer.parseInt(date[1])-1);
+		cal.set(Calendar.DATE, Integer.parseInt(date[2]));
+		dated = cal.getTime();
+		return dated;
 	}
 	public static PriceVO convertRow(Row setRow ) throws ParseException
 	{
-		PriceVO vo = new PriceVO();
-		System.out.println(setRow.mkString());
+		PriceVO vo = new PriceVO(); 
 		log.info(setRow.mkString());
+		vo.setDateStr(setRow.getString(0));
 		//vo.setDate(DateFormat.getDateInstance().parse(setRow.getString(0) ));
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-		vo.setDate(sdf.parse(setRow.getString(0)));
+		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		//vo.setDate(sdf.parse(setRow.getString(0)));
+		vo.setSymbol(SYMBOL);
+		vo.setCompany(COMP);
+		vo.setDate(getDate(vo.getDateStr().split("-")));
 		vo.setOpenPrice(Double.parseDouble(setRow.getString(1)));
 		vo.setHighPrice(Double.parseDouble(setRow.getString(2)));
 		vo.setLowPrice(Double.parseDouble(setRow.getString(3)));
 		vo.setClosingPrice(Double.parseDouble(setRow.getString(4)));
+		vo.setPrice(vo.getClosingPrice());
 		vo.setVolume(Long.parseLong(setRow.getString(6)));
 		vo.setPercent(((vo.getClosingPrice()-vo.getOpenPrice())/vo.getClosingPrice())*100);
-		vo.setDayMonth(getDay(vo.getDate()));
+		vo.setDayOfWeek(getDay(vo.getDate()));
 		return vo;
 	}
 	
