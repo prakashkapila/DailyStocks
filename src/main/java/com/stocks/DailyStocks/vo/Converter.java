@@ -90,7 +90,7 @@ public class Converter implements Serializable {
 	public static PriceVO convertRow(Row setRow ) throws ParseException
 	{
 		PriceVO vo = new PriceVO(); 
-		log.info(setRow.mkString());
+	//	log.info(setRow.mkString());
 		vo.setDateStr(setRow.getString(0));
 		//vo.setDate(DateFormat.getDateInstance().parse(setRow.getString(0) ));
 		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
@@ -104,9 +104,15 @@ public class Converter implements Serializable {
 		vo.setClosingPrice(Double.parseDouble(setRow.getString(4)));
 		vo.setPrice(vo.getClosingPrice());
 		vo.setVolume(Long.parseLong(setRow.getString(6)));
+		String openPerc=setRow.getString(7);
+		openPerc = openPerc==null ? "0.0":openPerc;
+		vo.setOpenPercent(Double.parseDouble(openPerc));
 		vo.setPercent(((vo.getClosingPrice()-vo.getOpenPrice())/vo.getClosingPrice())*100);
 		vo.setDayOfWeek(getDay(vo.getDate()));
+		vo.setChangedBy(vo.getClosingPrice()-vo.getOpenPrice());
+		vo.setTotalPercent(vo.getOpenPercent()+vo.getPercent());
 		return vo;
 	}
+	
 	
 }

@@ -23,9 +23,12 @@ public class PriceVO implements Serializable{
 	private String dateStr;
 	///
 	private double price;
-	 private double changedBy;
-	 private String company;
-	 
+	private double changedBy;
+	private String company;
+	private double openPercent; 
+	private double totalPercent; 
+	
+
 	final String SUNDAY="SUNDAY",MONDAY="MONDAY",TUESDAY="TUESDAY",WEDNESDAY="WEDNESDAY",THURSDAY="THURSDAY",FRIDAY="FRIDAY",SATURDAY="SATURDAY";
 	public String getDateStr() {
 		return dateStr;
@@ -228,4 +231,23 @@ public class PriceVO implements Serializable{
 		String val = strs[i].substring(strs[i].indexOf(":")+1, strs[i].length());
 		return val;
 	}
+	public double getOpenPercent() {
+		return openPercent;
+	}
+
+
+	public void setOpenPercent(double openPercent) {
+		this.openPercent = openPercent;
+	}
+
+
+	public double getTotalPercent() {
+		return totalPercent;
+	}
+
+
+	public void setTotalPercent(double totalPercent) {
+		this.totalPercent = totalPercent;
+	}
+	
 }

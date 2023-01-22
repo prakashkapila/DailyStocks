@@ -17,7 +17,7 @@ public abstract class SparkParent {
 			session = SparkSession.builder().master("local").appName("StockPrices")
 					.config("spark.driver.memory","2G")
 					.config("spark.driver.maxResultSize", "2G")
-					.config("spark.executor.memory","3G")
+					.config("spark.executor.memory","8G")
 					.config("spark.sql.shuffle.partitions","5")
 					.config("hadoop.home.dir","D:\\winutils-master\\winutils-master\\hadoop-2.7.1")
 					//.config("spark.driver.extraClassPath", "lib/spark-nlp-assembly-1.6.2.jar")
